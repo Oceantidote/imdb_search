@@ -1,0 +1,22 @@
+<%= form_tag movies_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a movie"
+  %>
+<% end %>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div id="movies">
+        <% @results.each do |result| %>
+          <h4><%= result.title %></h4>
+          <p><%= result.syllabus %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
