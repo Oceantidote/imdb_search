@@ -87,14 +87,18 @@ class MoviesController < ApplicationController
   # def index
   #   if params[:query].present?
   #     @movies = Movie.search_by_title_and_syllabus(params[:query])
+  #   else
+  #     @movies = Movie.all
   #   end
   # end
 
-  # ASSOCIATED PG SEARCH
+  # # ASSOCIATED PG SEARCH
 
   # def index
   #   if params[:query].present?
   #     @movies = Movie.global_search(params[:query])
+  #   else
+  #     @movies = Movie.all
   #   end
   # end
 
@@ -103,22 +107,19 @@ class MoviesController < ApplicationController
   # def index
   #   if params[:query].present?
   #     @results = PgSearch.multisearch(params[:query])
+  #   else
+  #     @actv_results = [Movie.all, Serie.all].flatten
   #   end
   # end
 
   # ELASTICSEARCH
 
-  def index
-    if params[:query].present?
-      @results = Movie.search(params[:query])
-    end
-  end
-
-
-
-
-
-
-
+  # def index
+  #   if params[:query].present?
+  #     @movies = Movie.search(params[:query])
+  #   else
+  #     @movies = [Movie.all, Serie.all].flatten
+  #   end
+  # end
 
 end

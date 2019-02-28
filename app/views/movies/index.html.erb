@@ -5,18 +5,45 @@
     placeholder: "Find a movie"
   %>
 <% end %>
-
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <div id="movies">
-        <% @results.each do |result| %>
-          <h4><%= result.title %></h4>
-          <p><%= result.syllabus %></p>
-        <% end %>
+<% if @results %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div id="movies">
+          <% @results.each do |movie| %>
+            <h4><%= movie.searchable.title %></h4>
+            <p><%= movie.searchable.syllabus %></p>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% elsif @actv_results %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div id="movies">
+          <% @actv_results.each do |movie| %>
+            <h4><%= movie.title %></h4>
+            <p><%= movie.syllabus %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% elsif @movies %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div id="movies">
+          <% @movies.each do |movie| %>
+            <h4><%= movie.title %></h4>
+            <p><%= movie.syllabus %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
